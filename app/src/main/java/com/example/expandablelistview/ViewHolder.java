@@ -51,9 +51,9 @@ public class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClick
 
         itemView.setOnClickListener(this);
 
-        rcv_list_parents.setVisibility(View.GONE);
+//        rcv_list_parents.setVisibility(View.GONE);
         Utils_Anim.AlphaAnimCusEase(rcv_list, 0, 0, 0, Utils_Anim.interpolator_easeOut );
-
+        icn_search_fl.bringChildToFront(rcv_list_parents);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -83,10 +83,19 @@ public class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClick
     }
 
     private void changeVisibility(final boolean isExpanded) {
-        ValueAnimator va = isExpanded ? ValueAnimator.ofInt(0, 500) : ValueAnimator.ofInt(500, 0);
+//        ValueAnimator va = isExpanded ? ValueAnimator.ofInt(0, 500) : ValueAnimator.ofInt(500, 0);
         int durationN = 300;
         Interpolator customInterpolator = PathInterpolatorCompat.create(0.33f,1f,0.68f,1f);
 
+//        va.setInterpolator(customInterpolator);
+//        va.setDuration(durationN);
+
+        ValueAnimator va;
+        if (isExpanded) {
+            va = ValueAnimator.ofInt(0, 500);
+        } else {
+            va = ValueAnimator.ofInt(500, 0);
+        }
         va.setInterpolator(customInterpolator);
         va.setDuration(durationN);
 

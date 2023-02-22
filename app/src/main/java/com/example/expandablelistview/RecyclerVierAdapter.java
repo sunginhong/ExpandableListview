@@ -26,7 +26,7 @@ public class RecyclerVierAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private RecyclerView mVerticalView;
     private ListAdapter mAdapter;
     private LinearLayoutManager mLayoutManager;
-    private int MAX_ITEM_COUNT = 3;
+    private int MAX_ITEM_COUNT = 4;
 
     @NonNull
     @Override
@@ -47,6 +47,9 @@ public class RecyclerVierAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     break;
                 case 2:
                     data.add(new ListData(R.drawable.item3));
+                    break;
+                case 3:
+                    data.add(new ListData(R.drawable.item4));
                     break;
             }
             i++;
