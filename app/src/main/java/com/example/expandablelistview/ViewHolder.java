@@ -54,6 +54,7 @@ public class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClick
 //        rcv_list_parents.setVisibility(View.GONE);
         Utils_Anim.AlphaAnimCusEase(rcv_list, 0, 0, 0, Utils_Anim.interpolator_easeOut );
         icn_search_fl.bringChildToFront(rcv_list_parents);
+//        icn_search_fl.bringToFront();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
