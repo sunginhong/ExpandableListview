@@ -3,11 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/linearlayout"
+    android:stateListAnimator="@null"
+    android:clickable="false"
     android:background="@color/white"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/icn_search_fl"
+        android:stateListAnimator="@null"
+        android:clickable="false"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginLeft="20dp"
@@ -81,9 +85,9 @@
 
     <FrameLayout
         android:id="@+id/rcv_list_parents"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="194dp"
+        android:background="@color/white"
         android:clipChildren="true">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -91,6 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
+            android:layout_gravity="center"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"/>
 

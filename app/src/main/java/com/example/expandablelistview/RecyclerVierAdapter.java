@@ -1,10 +1,12 @@
 package com.example.expandablelistview;
 import android.content.Context;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,7 +18,10 @@ public class RecyclerVierAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     // adapter에 들어갈 list 입니다.
     private ArrayList<ItemData> listData = new ArrayList<>();
-
+    static LinearLayout[] ivArr = new LinearLayout[5];
+    static FrameLayout[] rcv_list_parentsArr = new FrameLayout[5];
+    static FrameLayout[] icn_search_flArr = new FrameLayout[5];
+    static FrameLayout[] arrowArr = new FrameLayout[5];
     // Item의 클릭 상태를 저장할 array 객체
     private SparseBooleanArray selectedItems = new SparseBooleanArray();
     // 직전에 클릭됐던 Item의 position
@@ -71,25 +76,14 @@ public class RecyclerVierAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         ViewHolder viewHolder = (ViewHolder) holder;
         viewHolder.onBind(listData.get(position), position, selectedItems);
-        viewHolder.setOnViewHolderItemClickListener(new OnViewHolderItemClickListener() {
-            @Override
-            public void onViewHolderItemClick() {
-                if (selectedItems.get(position)) {
-                    // 펼쳐진 Item을 클릭 시
-                    selectedItems.delete(position);
-                } else {
-                    // 직전의 클릭됐던 Item의 클릭상태를 지움
-                    selectedItems.delete(prePosition);
-                    // 클릭한 Item의 position을 저장
-                    selectedItems.put(position, true);
-                }
-                // 해당 포지션의 변화를 알림
-                if (prePosition != -1) notifyItemChanged(prePosition);
-                notifyItemChanged(position);
-                // 클릭된 position 저장
-                prePosition = position;
-            }
-        });
+        ivArr[position] = ((ViewHolder) holder).linearlayout;
+        icn_search_flArr[position] = ((ViewHolder) holder).icn_search_fl;
+        arrowArr[position] = ((ViewHolder) holder).arrow_fl;
+        rcv_list_parentsArr[position] = ((ViewHolder) holder).rcv_list_parents;
+        for (int i = 0; i < ivArr.length; i++) {
+            ivArr[position].setId(i);
+//            Log.d("sdasdasd", "SDsadsa  "+ivArr[position].getId());
+        }
     }
 
     @Override
