@@ -16,15 +16,12 @@ import java.util.ArrayList;
 
 public class RecyclerVierAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    // adapter에 들어갈 list 입니다.
     private ArrayList<ItemData> listData = new ArrayList<>();
     static LinearLayout[] ivArr = new LinearLayout[5];
     static FrameLayout[] rcv_list_parentsArr = new FrameLayout[5];
     static FrameLayout[] icn_search_flArr = new FrameLayout[5];
     static FrameLayout[] arrowArr = new FrameLayout[5];
-    // Item의 클릭 상태를 저장할 array 객체
     private SparseBooleanArray selectedItems = new SparseBooleanArray();
-    // 직전에 클릭됐던 Item의 position
     private int prePosition = -1;
     Context ctx;
 
@@ -82,7 +79,6 @@ public class RecyclerVierAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         rcv_list_parentsArr[position] = ((ViewHolder) holder).rcv_list_parents;
         for (int i = 0; i < ivArr.length; i++) {
             ivArr[position].setId(i);
-//            Log.d("sdasdasd", "SDsadsa  "+ivArr[position].getId());
         }
     }
 
@@ -92,7 +88,6 @@ public class RecyclerVierAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     void addItem(ItemData itemData) {
-        // 외부에서 item을 추가시킬 함수입니다.
         listData.add(itemData);
     }
 }

@@ -18,8 +18,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListViewHolder> {
 
     @Override
     public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        // 사용할 아이템의 뷰를 생성해준다.
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_recycler_items, parent, false);
 
